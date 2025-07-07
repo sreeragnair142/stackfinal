@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBA</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="app/dist/aos.css">
+    <link rel="stylesheet" href="app/dist/app.css">
+    <!-- end Styles -->
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/logofav - Copy.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.png">
+
+    <style>
+        /* Mobile menu dropdown icon styles */
+        .mobile-menu-dropdown {
+            position: relative;
+        }
+
+        .mobile-menu-dropdown .dropdown-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-dropdown.active .dropdown-icon {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        /* Mobile dropdown submenu styles */
+        .mobile-submenu {
+            display: none;
+            padding-left: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-submenu.active {
+            display: block;
+            max-height: 500px;
+            /* Adjust as needed */
+        }
+
+        .mobile-submenu li {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-submenu li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body class="home-main header-fixed">
+
+    <div class="wrapper page-details">
+
+        <div class="preloader">
+            <div class="clear-loading loading-effect-2">
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header_main" class="header">
+            <div class="container big">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header__body">
+                            <div class="header__logo">
+                                <a href="index.html">
+                                    <img id="site-logo" src="assets/images/logo/logosb.png" alt="Peson" width="120"
+                                        height="45" data-retina="assets/images/logo/logo@2x.png" data-width="120"
+                                        data-height="38">
+                                </a>
+                            </div>
+
+
+                            <div class="header__right">
+                                <nav id="main-nav" class="main-nav">
+                                    <ul id="menu-primary-menu" class="menu">
+
+                                        <li class="">
+                                            <a href="index.html">Home</a>
+                                        </li>
+
+                                        <li class="menu-item">
+                                            <a href="about.html">About</a>
+                                        </li>
+
+
+                                        <li class="menu-item menu-item-has-children">
+                                            <a href="#">Solutions</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="stack-bi.html">Stack BI</a></li>
+                                                <li class="menu-item"><a href="cloud_monitoring.html">Cloud Service
+                                                        Monitoring</a></li>
+                                                <li class="menu-item"><a href="visitor_management.html">Visitor
+                                                        Management</a></li>
+                                                <li class="menu-item"><a href="e_invoicing.html">E Invoicing</a></li>
+                                                <li class="menu-item"><a href="monitoring.html">Server Monitoring</a>
+                                                </li>
+                                                <li class="menu-item"><a href="business-process.html">Business Process
+                                                        Automation</a></li>
+                                                <li class="menu-item"><a href="devops.html">Devops Automation</a></li>
+                                                <li class="menu-item"><a href="erp.html">ERP Implimentation</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="">
+                                            <a href="vision-mission.html">Clients</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="contact.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-button"><span></span></div>
+                            </div>
+
+                            <div class="header__action">
+                                <a href="contact.html" class=""><span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end Header -->
+
+
+          <!-- Floating Contact Icons -->
+        <div class="floating-contact-icons">
+            <a href="https://wa.me/966543387680" target="_blank" class="contact-icon whatsapp-icon" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+966543387680" class="contact-icon phone-icon" title="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+        <!-- Pagetitle -->
+        <main>
+            <section class="heroo">
+                <div class="container">
+                    <div class="heroo-content">
+                        <!-- Original 4 images with reduced size -->
+
+
+                        <div class="image-container top-left">
+                            <img src="assets/images/layouts/blue1.png" alt="Creative design">
+                        </div>
+                        <div class="image-container top-right">
+                            <img src="assets/images/layouts/blue2.png" alt="Product design">
+                        </div>
+                        <div class="image-container bottom-left">
+                            <img src="assets/images/layouts/blue3.png" alt="Web design">
+                        </div>
+                        <div class="image-container bottom-right">
+                            <img src="assets/images/layouts/blue4.png" alt="Interior design">
+                        </div>
+
+
+
+
+
+                        <!-- Two additional images -->
+                        <div class="image-container middle-left">
+                            <img src="assets/images/layouts/blue5.png" alt="Digital marketing">
+                        </div>
+                        <div class="image-container middle-right">
+                            <img src="assets/images/layouts/blue6.png" alt="Brand strategy">
+                        </div>
+
+                        <div class="hero-text">
+                            <span class="welcome">Welcome</span>
+                            <!-- <img src="assets/images/logo/stackfooternew.png" alt="Stack Logo" class="main-logo" /> -->
+                            <h2>Clients</h2>
+                            <span class="established">RiseWithUs</span>
+                        </div>
+                    </div>
+
+                    <div class="tagline" style="color: rgb(234, 229, 229);">
+                        <img src="assets/images/layouts/blue7.png" alt="Stack Logo" class="main-logo" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="scroll-indicator">
+                <div class="container">
+                    <!-- <div class="scroll-text">
+          <i class="fas fa-arrow-down"></i>
+          <span>Scroll to Explore</span>
+        </div> -->
+                </div>
+            </section>
+        </main>
+
+
+        <footer class="footer">
+            <div class="shape"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- Company Info Column -->
+                    <div class="footer-column">
+
+                        <h6 class="powered-text" style="display: flex; align-items: center; gap: 5px;">
+                            Powered by
+                            <img src="assets/images/logo/stackfooternew.png" alt="STACK Logo" style="height: 50px;">
+                        </h6> <br>
+
+                        <p style="font-size: 15px;">SBA Business Analytics provides cutting-edge cloud services,
+                            monitoring solutions,
+                            and business intelligence tools to help your business thrive in today's digital
+                            landscape.</p> <br>
+                        <div class="contact-info">
+                            <p style="font-size: 15px;"><i class="fa-solid fa-location-dot"></i> #2, Al Yassmen
+                                Building, Zaid Ibn Thabit Street, Riyadh, Saudi Arabia
+                            </p>
+                            <p style="font-size: 15px;"><i class="fa-solid fa-phone"></i> 054 338 7680</p>
+                            <p style="font-size: 15px;"><i class="fa-solid fa-envelope"></i> business@sbarabia.com</p>
+                        </div>
+                    </div>
+
+                    <!-- Services Column -->
+                    <div class="footer-column">
+                        <h4>Our Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="stack-bi.html">Stack BI</a></li>
+                            <li><a href="cloud_monitoring.html">Cloud Service Monitoring</a></li>
+                            <li><a href="visitor_management.html">Visitor Management</a></li>
+                            <li><a href="e_invoicing.html">E Invoicing</a></li>
+                            <li><a href="monitoring.html">Server Monitoring</a></li>
+                            <li><a href="business-process.html">Business Process Automation</a></li>
+                            <li><a href="devops.html">Devops Automation</a></li>
+                            <li><a href="erp.html">ERP Implimentation</a></li>
+
+
+
+                        </ul>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="about.html">Solutions</a></li>
+                            <li><a href="#">Client</a></li>
+                            <!-- <li><a href="career.html">Careers</a></li> -->
+                            <li><a href="contact.html">Contact </a></li>
+                        </ul>
+                    </div>
+                    <!-- Newsletter Column -->
+                    <div class="footer-column">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe to our newsletter to receive latest updates, industry insights, and exclusive
+                            offers.</p>
+
+                        <form action="#" class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                            </div>
+                            <button type="submit" class="action-btn">
+                                <span>Subscribe</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Footer Bottom Section -->
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        Copyright © 2025, Bloombiz Creatives | SBA Business Analytics. All rights reserved.
+                    </div>
+
+                    <ul class="footer-quick-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+
+                   <ul class="social-icons">
+                        <li>
+                            <a href="https://x.com/home" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" fill="white" width="20"
+                                    height="20">
+                                    <path
+                                        d="M714.963 545.162L1177.28 0H1070.98L672.133 484.184L350.866 0H0L490.089 714.848L0 1227H106.295L535.063 706.747L875.072 1227H1200L714.963 545.162ZM583.349 633.397L544.436 577.205L140.977 89.3447H305.738L615.445 546.991L654.358 603.183L1069.15 1136.41H905.388L583.349 633.397Z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/sb_arabia">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="white">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="https://www.linkedin.com/in/sb-arabia-661547367/" target="_blank"
+                                rel="noopener noreferrer">
+                                <!-- LinkedIn SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8.5H5V24H.02V8.5zM7.98 8.5H13v2.58h.09c.73-1.38 2.52-2.84 5.19-2.84 5.55 0 6.57 3.65 6.57 8.39V24H19v-7.61c0-1.82-.03-4.16-2.54-4.16-2.55 0-2.94 1.99-2.94 4.04V24H7.98V8.5z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+    </footer>
+
+
+    <a id="scroll-top"><i class="fas fa-arrow-up"></i></a>
+
+    </div>
+
+
+
+ <script>
+        $(document).ready(function () {
+            // Show or hide the scroll top button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('#scroll-top').addClass('show');
+                } else {
+                    $('#scroll-top').removeClass('show');
+                }
+            });
+
+            // Scroll to top when button is clicked
+            $('#scroll-top').click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
+            });
+        });
+    </script>
+
+
+    <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/jquery.easing.js"></script>
+    <script src="app/js/plugins.js"></script>
+    <script src="app/js/countto.js"></script>
+
+    <script src="app/js/app.js"></script>
+    <script src="app/js/count-down.js"></script>
+
+    <script src="app/js/aos.js"></script>
+
+
+    <script src="app/js/swiper-bundle.min.js"></script>
+    <script src="app/js/swiper.js"></script>
+
+    <!-- Initialize Swiper -->
+
+
+</body>
+
+</html>
