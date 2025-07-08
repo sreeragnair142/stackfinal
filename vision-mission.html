@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBA</title>
+    <title>SBA - Clients</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,15 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.5/swiper-bundle.min.css">
     <link rel="stylesheet" href="app/dist/aos.css">
     <link rel="stylesheet" href="app/dist/app.css">
-    <!-- end Styles -->
 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Favicon and Touch Icons  -->
+    <!-- Favicon and Touch Icons -->
     <link rel="shortcut icon" href="assets/images/logo/logofav - Copy.png">
     <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.png">
 
@@ -58,7 +57,6 @@
         .mobile-submenu.active {
             display: block;
             max-height: 500px;
-            /* Adjust as needed */
         }
 
         .mobile-submenu li {
@@ -69,13 +67,354 @@
         .mobile-submenu li:last-child {
             border-bottom: none;
         }
+
+        /* AIED Notification Box and Scroll-to-Top Styles */
+        .hidden {
+            display: none !important;
+        }
+
+        .notification-container {
+            position: fixed;
+            bottom: 80px; /* Above scroll-top */
+            right: 0px;
+            z-index: 999;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .notification-box {
+            width: 70px;
+            height: 50px;
+            background: linear-gradient(90deg, #0d0f3f, #4b248c);
+            border-radius: 25px 0 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: width 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification-box:hover {
+            width: 300px;
+        }
+
+        .notification-short-text {
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            margin-left: 10px;
+            white-space: nowrap;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .notification-box:hover .notification-short-text {
+            opacity: 0;
+        }
+
+        .notification-text {
+            position: absolute;
+            left: 70px;
+            color: #fff;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            white-space: nowrap;
+            text-decoration: none !important;
+        }
+
+        .notification-box:hover .notification-text {
+            opacity: 1;
+        }
+
+       
+
+        /* Floating Contact Icons */
+        .floating-contact-icons {
+            position: fixed;
+            bottom: 140px; /* Adjusted to ensure visibility above notification and scroll-top */
+            right: 20px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-icon:hover {
+            background: linear-gradient(90deg, #6366f1, #8065e0);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #060b28;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 40px;
+        }
+
+        .footer .shape {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100px;
+            background-color: rgba(106, 90, 205, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .footer-column {
+            flex: 1;
+            padding: 0 15px;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b4b7c9;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #b4b7c9;
+            font-size: 15px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #6366f1;
+            width: 16px;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            margin-top: 15px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            height: 46px;
+            padding: 0 20px;
+            width: 100%;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .action-btn {
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            height: 46px;
+            padding: 0 30px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(90deg, #6366f1, #8065e0);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            color: #b4b7c9;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .social-icons li {
+            margin-left: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: rgba(99, 102, 241, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .social-icons svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
+
+        .footer-quick-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .footer-quick-links li {
+            margin-right: 20px;
+        }
+
+        .footer-quick-links a {
+            color: #b4b7c9;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-quick-links a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-column {
+                flex: 0 0 50%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-icons,
+            .footer-quick-links {
+                justify-content: center;
+            }
+
+            .social-icons li:first-child {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-column {
+                flex: 0 0 100%;
+            }
+        }
     </style>
 </head>
 
 <body class="home-main header-fixed">
-
     <div class="wrapper page-details">
-
         <div class="preloader">
             <div class="clear-loading loading-effect-2">
                 <span></span>
@@ -90,26 +429,20 @@
                         <div class="header__body">
                             <div class="header__logo">
                                 <a href="index.html">
-                                    <img id="site-logo" src="assets/images/logo/logosb.png" alt="Peson" width="120"
+                                    <img id="site-logo" src="assets/images/logo/stackfooternew.png" alt="Peson" width="120"
                                         height="45" data-retina="assets/images/logo/logo@2x.png" data-width="120"
                                         data-height="38">
                                 </a>
                             </div>
-
-
                             <div class="header__right">
                                 <nav id="main-nav" class="main-nav">
                                     <ul id="menu-primary-menu" class="menu">
-
                                         <li class="">
                                             <a href="index.html">Home</a>
                                         </li>
-
                                         <li class="menu-item">
                                             <a href="about.html">About</a>
                                         </li>
-
-
                                         <li class="menu-item menu-item-has-children">
                                             <a href="#">Solutions</a>
                                             <ul class="sub-menu">
@@ -118,16 +451,9 @@
                                                         Monitoring</a></li>
                                                 <li class="menu-item"><a href="visitor_management.html">Visitor
                                                         Management</a></li>
-                                                <li class="menu-item"><a href="e_invoicing.html">E Invoicing</a></li>
-                                                <li class="menu-item"><a href="monitoring.html">Server Monitoring</a>
-                                                </li>
-                                                <li class="menu-item"><a href="business-process.html">Business Process
-                                                        Automation</a></li>
-                                                <li class="menu-item"><a href="devops.html">Devops Automation</a></li>
-                                                <li class="menu-item"><a href="erp.html">ERP Implimentation</a></li>
+                                                <li class="menu-item"><a href="monitoring.html">Server Monitoring</a></li>
                                             </ul>
                                         </li>
-
                                         <li class="">
                                             <a href="vision-mission.html">Clients</a>
                                         </li>
@@ -138,7 +464,6 @@
                                 </nav>
                                 <div class="mobile-button"><span></span></div>
                             </div>
-
                             <div class="header__action">
                                 <a href="contact.html" class=""><span></span></a>
                             </div>
@@ -149,28 +474,36 @@
         </header>
         <!-- end Header -->
 
-
-          <!-- Floating Contact Icons -->
-        <div class="floating-contact-icons">
+        <!-- Floating Contact Icons -->
+        <!-- <div class="floating-contact-icons">
             <a href="https://wa.me/966543387680" target="_blank" class="contact-icon whatsapp-icon" title="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
             <a href="tel:+966543387680" class="contact-icon phone-icon" title="Call Us">
                 <i class="fas fa-phone"></i>
             </a>
+        </div> -->
+
+        <!-- AIED Notification Box -->
+        <div id="sticky-container" class="notification-container hidden">
+            <div class="notification-box">
+                <span class="notification-short-text">AIED</span>
+                <a href="https://aied-sa.com/" class="notification-text" target="_self">Back to AIED</a>
+            </div>
         </div>
-        <!-- Pagetitle -->
+
+        <!-- Scroll-to-Top Button -->
+        <a id="scroll-top"><i class="fas fa-arrow-up"></i></a>
+
+        <!-- Main Content -->
         <main>
-            <section class="heroo">
+            <section class="heroo" id="heroo">
                 <div class="container">
                     <div class="heroo-content">
-                        <!-- Original 4 images with reduced size -->
-
-
-                        <div class="image-container top-left">
+                        <div class="image-container top-left" style="position: relative; top: 5px;">
                             <img src="assets/images/layouts/blue1.png" alt="Creative design">
                         </div>
-                        <div class="image-container top-right">
+                        <div class="image-container top-right" style="margin-top: 20px;" >
                             <img src="assets/images/layouts/blue2.png" alt="Product design">
                         </div>
                         <div class="image-container bottom-left">
@@ -179,27 +512,18 @@
                         <div class="image-container bottom-right">
                             <img src="assets/images/layouts/blue4.png" alt="Interior design">
                         </div>
-
-
-
-
-
-                        <!-- Two additional images -->
                         <div class="image-container middle-left">
                             <img src="assets/images/layouts/blue5.png" alt="Digital marketing">
                         </div>
                         <div class="image-container middle-right">
                             <img src="assets/images/layouts/blue6.png" alt="Brand strategy">
                         </div>
-
                         <div class="hero-text">
                             <span class="welcome">Welcome</span>
-                            <!-- <img src="assets/images/logo/stackfooternew.png" alt="Stack Logo" class="main-logo" /> -->
                             <h2>Clients</h2>
                             <span class="established">RiseWithUs</span>
                         </div>
                     </div>
-
                     <div class="tagline" style="color: rgb(234, 229, 229);">
                         <img src="assets/images/layouts/blue7.png" alt="Stack Logo" class="main-logo" />
                     </div>
@@ -208,76 +532,57 @@
 
             <section class="scroll-indicator">
                 <div class="container">
+                    <!-- Commented out as in original -->
                     <!-- <div class="scroll-text">
-          <i class="fas fa-arrow-down"></i>
-          <span>Scroll to Explore</span>
-        </div> -->
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Scroll to Explore</span>
+                    </div> -->
                 </div>
             </section>
         </main>
 
-
+        <!-- Footer -->
         <footer class="footer">
             <div class="shape"></div>
             <div class="container">
                 <div class="row">
-                    <!-- Company Info Column -->
                     <div class="footer-column">
-
                         <h6 class="powered-text" style="display: flex; align-items: center; gap: 5px;">
-                            Powered by
-                            <img src="assets/images/logo/stackfooternew.png" alt="STACK Logo" style="height: 50px;">
+                            <img src="assets/images/logo/stackfooternew.png" alt="STACK Logo" style="height: 50px;" >
                         </h6> <br>
-
                         <p style="font-size: 15px;">SBA Business Analytics provides cutting-edge cloud services,
-                            monitoring solutions,
-                            and business intelligence tools to help your business thrive in today's digital
-                            landscape.</p> <br>
+                            monitoring solutions, and business intelligence tools to help your business thrive in today's
+                            digital landscape.</p> <br>
                         <div class="contact-info">
-                            <p style="font-size: 15px;"><i class="fa-solid fa-location-dot"></i> #2, Al Yassmen
-                                Building, Zaid Ibn Thabit Street, Riyadh, Saudi Arabia
-                            </p>
+                            <p style="font-size: 15px;"><i class="fa-solid fa-location-dot"></i> #2, Al Yassmen Building,
+                                Zaid Ibn Thabit Street, Riyadh, Saudi Arabia</p>
                             <p style="font-size: 15px;"><i class="fa-solid fa-phone"></i> 054 338 7680</p>
                             <p style="font-size: 15px;"><i class="fa-solid fa-envelope"></i> business@sbarabia.com</p>
                         </div>
                     </div>
-
-                    <!-- Services Column -->
                     <div class="footer-column">
                         <h4>Our Solutions</h4>
                         <ul class="footer-links">
                             <li><a href="stack-bi.html">Stack BI</a></li>
                             <li><a href="cloud_monitoring.html">Cloud Service Monitoring</a></li>
                             <li><a href="visitor_management.html">Visitor Management</a></li>
-                            <li><a href="e_invoicing.html">E Invoicing</a></li>
                             <li><a href="monitoring.html">Server Monitoring</a></li>
-                            <li><a href="business-process.html">Business Process Automation</a></li>
-                            <li><a href="devops.html">Devops Automation</a></li>
-                            <li><a href="erp.html">ERP Implimentation</a></li>
-
-
-
                         </ul>
                     </div>
-
-                    <!-- Quick Links Column -->
                     <div class="footer-column">
                         <h4>Quick Links</h4>
                         <ul class="footer-links">
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="#">About</a></li>
+                            <li><a href="about.html">About</a></li>
                             <li><a href="about.html">Solutions</a></li>
-                            <li><a href="#">Client</a></li>
-                            <!-- <li><a href="career.html">Careers</a></li> -->
-                            <li><a href="contact.html">Contact </a></li>
+                            <li><a href="vision-mission.html">Clients</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
-                    <!-- Newsletter Column -->
                     <div class="footer-column">
                         <h4>Newsletter</h4>
                         <p>Subscribe to our newsletter to receive latest updates, industry insights, and exclusive
                             offers.</p>
-
                         <form action="#" class="newsletter-form">
                             <div class="form-group">
                                 <input type="email" class="form-control" placeholder="Your email address">
@@ -288,20 +593,16 @@
                         </form>
                     </div>
                 </div>
-
-                <!-- Footer Bottom Section -->
                 <div class="footer-bottom">
                     <div class="copyright">
-                        Copyright © 2025, Bloombiz Creatives | SBA Business Analytics. All rights reserved.
+                        Copyright © 2025, Bloombiz Creatives | STACK Business Analytics. All rights reserved.
                     </div>
-
                     <ul class="footer-quick-links">
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="security.html">Security</a></li>
                     </ul>
-
-                   <ul class="social-icons">
+                    <ul class="social-icons">
                         <li>
                             <a href="https://x.com/home" target="_blank" rel="noopener noreferrer">
                                 <svg viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" fill="white" width="20"
@@ -320,12 +621,9 @@
                                 </svg>
                             </a>
                         </li>
-
-
                         <li>
                             <a href="https://www.linkedin.com/in/sb-arabia-661547367/" target="_blank"
                                 rel="noopener noreferrer">
-                                <!-- LinkedIn SVG -->
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20"
                                     viewBox="0 0 24 24">
                                     <path
@@ -336,17 +634,21 @@
                     </ul>
                 </div>
             </div>
-    </div>
-    </footer>
-
-
-    <a id="scroll-top"><i class="fas fa-arrow-up"></i></a>
-
+        </footer>
     </div>
 
+    <!-- Scripts -->
+    <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/jquery.easing.js"></script>
+    <script src="app/js/plugins.js"></script>
+    <script src="app/js/countto.js"></script>
+    <script src="app/js/app.js"></script>
+    <script src="app/js/count-down.js"></script>
+    <script src="app/js/aos.js"></script>
+    <script src="app/js/swiper-bundle.min.js"></script>
+    <script src="app/js/swiper.js"></script>
 
-
- <script>
+    <script>
         $(document).ready(function () {
             // Show or hide the scroll top button
             $(window).scroll(function () {
@@ -364,27 +666,22 @@
                 }, 800);
                 return false;
             });
+
+            // Show or hide AIED notification box
+            window.addEventListener("scroll", function () {
+                const container = document.getElementById("sticky-container");
+                const herooSection = document.getElementById("heroo");
+
+                const herooBottom = herooSection.getBoundingClientRect().bottom;
+
+                if (herooBottom < 0) {
+                    container.classList.remove("hidden");
+                } else {
+                    container.classList.add("hidden");
+                }
+            });
         });
     </script>
-
-
-    <script src="app/js/jquery.min.js"></script>
-    <script src="app/js/jquery.easing.js"></script>
-    <script src="app/js/plugins.js"></script>
-    <script src="app/js/countto.js"></script>
-
-    <script src="app/js/app.js"></script>
-    <script src="app/js/count-down.js"></script>
-
-    <script src="app/js/aos.js"></script>
-
-
-    <script src="app/js/swiper-bundle.min.js"></script>
-    <script src="app/js/swiper.js"></script>
-
-    <!-- Initialize Swiper -->
-
-
 </body>
 
 </html>

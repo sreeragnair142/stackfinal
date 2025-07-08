@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="app/dist/aos.css">
     <link rel="stylesheet" href="app/dist/animate.css">
     <link rel="stylesheet" href="app/dist/app.css">
-   
+
     <!-- end Styles -->
 
     <!-- Favicon and Touch Icons  -->
@@ -26,6 +26,256 @@
 
 
 </head>
+<style>
+    .trends {
+        padding: 2rem 0;
+    }
+
+    .trends h2 {
+        font-weight: 100;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: slideInDown 0.8s ease-out 0.2s forwards;
+    }
+
+    .trends__card {
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideInUp 0.6s ease-out forwards;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .trends__card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.5), transparent);
+        animation: shimmer 2s infinite;
+    }
+
+    .trends__card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        /* border-color: #007bff; */
+    }
+
+    .trends__card:hover::before {
+        animation-duration: 0.8s;
+    }
+
+    .trends__card h3 {
+        font-weight: bold;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .trends__card h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #007bff, #28a745);
+        transition: width 0.6s ease-out;
+    }
+
+    .trends__card:hover h3::after {
+        width: 100%;
+    }
+
+    .trends__card p:first-of-type {
+        color: #6c757d;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .trends__card p:last-of-type {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        position: relative;
+        opacity: 0;
+        animation: fadeIn 0.6s ease-out 0.8s forwards;
+    }
+
+    .text-success {
+        color: #28a745 !important;
+    }
+
+    .text-danger {
+        color: #dc3545 !important;
+    }
+
+    /* Staggered animation delays */
+    .col-md-4:nth-child(1) .trends__card {
+        animation-delay: 0.1s;
+    }
+
+    .col-md-4:nth-child(2) .trends__card {
+        animation-delay: 0.2s;
+    }
+
+    .col-md-4:nth-child(3) .trends__card {
+        animation-delay: 0.3s;
+    }
+
+    .col-md-4:nth-child(4) .trends__card {
+        animation-delay: 0.4s;
+    }
+
+    .col-md-4:nth-child(5) .trends__card {
+        animation-delay: 0.5s;
+    }
+
+    .col-md-4:nth-child(6) .trends__card {
+        animation-delay: 0.6s;
+    }
+
+    /* Number counter animation */
+    .trends__card h3 {
+        animation: countUp 1.5s ease-out 0.5s forwards;
+    }
+
+    /* Keyframes */
+    @keyframes slideInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes shimmer {
+        0% {
+            left: -100%;
+        }
+
+        100% {
+            left: 100%;
+        }
+    }
+
+    @keyframes countUp {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Pulse animation for percentage changes */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .trends__card p:last-of-type {
+        animation: fadeIn 0.6s ease-out 0.8s forwards, pulse 2s ease-in-out 1.5s infinite;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .trends__card {
+            margin-bottom: 1rem;
+        }
+
+        .trends__card h3 {
+            font-size: 2rem;
+        }
+    }
+
+    /* Loading state */
+    .loading {
+        position: relative;
+    }
+
+    .loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0 -10px;
+        border: 2px solid #f3f3f3;
+        border-top: 2px solid #007bff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Glow effect on hover */
+    .trends__card:hover {
+        box-shadow: 0 20px 40px rgba(0, 123, 255, 0.15);
+    }
+
+    /* Smooth transitions for all interactive elements */
+    * {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+</style>
 
 <body class="home-main header-fixed">
 
@@ -46,9 +296,9 @@
                         <div class="header__body">
                             <div class="header__logo">
                                 <a href="index.html">
-                                    <img id="site-logo" src="assets/images/logo/logosb.png" alt="Peson" width="120"
-                                        height="45" data-retina="assets/images/logo/logo@2x.png" data-width="120"
-                                        data-height="38">
+                                    <img id="site-logo" src="assets/images/logo/stackfooternew.png" alt="Peson"
+                                        width="120" height="45" data-retina="assets/images/logo/logo@2x.png"
+                                        data-width="120" data-height="38">
                                 </a>
                             </div>
                             <div class="header__right">
@@ -100,7 +350,7 @@
         </div> -->
 
         <!-- Banner with Background Video -->
-        <section class="banner s4 position-relative overflow-hidden">
+        <section class="banner s4 position-relative overflow-hidden" id="banner">
             <!-- Background Video -->
             <video autoplay muted loop playsinline class="background-video">
                 <source src="videos/Apple Watch Series 9 Reveal (4K) - Apple Spectrum (1080p, h264) (1).mp4"
@@ -141,7 +391,7 @@
                                     <div class="swiper-slide">
                                         <div class="card-box s2">
                                             <div class="image">
-                                                <img src="assets/images/layouts/tabnew.png" alt="">
+                                                <img src="assets/images/layouts/mobilenew2.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -153,7 +403,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                                 <div class="swiper-button-next s1">
                                     <svg width="10" height="15" viewBox="0 0 10 15" fill="none"
@@ -356,7 +606,7 @@
             <h2 style="font-weight: 100;">Analytics</h2>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="trends__card ">
+                    <div class="trends__card">
                         <h3 style="font-weight: bold;">2,103</h3>
                         <p>Total Employees</p>
                         <p class="text-danger">-0.13% less than yesterday</p>
@@ -397,32 +647,35 @@
                         <p class="text-danger">-0.63% less than yesterday</p>
                     </div>
                 </div>
-            </div> <br> <br> <br>
-
-            <!-- Charts -->
-            <!-- <div class="row mt-5">
-                    <div class="col-md-6 mb-4">
-                        <div class="trends__card p-4">
-                            <h4 class="mb-3">Daily Attendance</h4>
-                            <div class="chart-container">
-                                <canvas id="barChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-            
-                    <div class="col-md-6 mb-4">
-                        <div class="trends__card p-4">
-                            <h4 class="mb-3">Presence Overview</h4>
-                            <div class="chart-container">
-                                <canvas id="pieChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+            </div>
+            <br><br><br>
         </section>
+        <script>
+            // Optional: Add number counting animation
+            document.addEventListener('DOMContentLoaded', function () {
+                const numbers = document.querySelectorAll('.trends__card h3');
+
+                numbers.forEach(number => {
+                    const finalNumber = parseInt(number.textContent.replace(',', ''));
+                    let currentNumber = 0;
+                    const increment = finalNumber / 100;
+
+                    setTimeout(() => {
+                        const timer = setInterval(() => {
+                            currentNumber += increment;
+                            if (currentNumber >= finalNumber) {
+                                number.textContent = finalNumber.toLocaleString();
+                                clearInterval(timer);
+                            } else {
+                                number.textContent = Math.floor(currentNumber).toLocaleString();
+                            }
+                        }, 20);
+                    }, 800);
+                });
+            });
+        </script>
 
 
-        
         <!-- Chart.js -->
         <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
         <!-- <script>
@@ -630,7 +883,7 @@
                                     </defs>
                                 </svg>
                             </div>
-                            <h5 class="title">E-Invoicing</h5>
+                            <h5 class="title">Server Monitoring</h5>
                             <p>Automate invoices to fully comply with ZATCA rules.</p>
                             <h3 class="number">04</h3>
                         </div>
@@ -638,132 +891,7 @@
 
 
 
-                    <div class="col-xl-3 col-md-6">
-                        <div class="speciality-box animate-left" data-aos="fade-right" data-aos-duration="1000"
-                            data-aos-delay="600">
-                            <div class="icon">
-                                <!-- Server Monitoring Icon (fixed) -->
-                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M8 6C6.89543 6 6 6.89543 6 8V16C6 17.1046 6.89543 18 8 18H40C41.1046 18 42 17.1046 42 16V8C42 6.89543 41.1046 6 40 6H8ZM12 12C12 13.1046 11.1046 14 10 14C8.89543 14 8 13.1046 8 12C8 10.8954 8.89543 10 10 10C11.1046 10 12 10.8954 12 12ZM16 11C16 10.4477 16.4477 10 17 10H23C23.5523 10 24 10.4477 24 11C24 11.5523 23.5523 12 23 12H17C16.4477 12 16 11.5523 16 11ZM8 22C6.89543 22 6 22.8954 6 24V32C6 33.1046 6.89543 34 8 34H40C41.1046 34 42 33.1046 42 32V24C42 22.8954 41.1046 22 40 22H8ZM12 28C12 29.1046 11.1046 30 10 30C8.89543 30 8 29.1046 8 28C8 26.8954 8.89543 26 10 26C11.1046 26 12 26.8954 12 28ZM16 27C16 26.4477 16.4477 26 17 26H23C23.5523 26 24 26.4477 24 27C24 27.5523 23.5523 28 23 28H17C16.4477 28 16 27.5523 16 27ZM8 38C6.89543 38 6 38.8954 6 40V42C6 43.1046 6.89543 44 8 44H40C41.1046 44 42 43.1046 42 42V40C42 38.8954 41.1046 38 40 38H8Z"
-                                        fill="url(#paint0_linear_server)" />
-                                    <circle cx="10" cy="41" r="2" fill="url(#paint1_linear_server)" />
-                                    <path
-                                        d="M16 41C16 40.4477 16.4477 40 17 40H23C23.5523 40 24 40.4477 24 41C24 41.5523 23.5523 42 23 42H17C16.4477 42 16 41.5523 16 41Z"
-                                        fill="url(#paint2_linear_server)" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_server" x1="24" y1="6" x2="24" y2="44"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop offset="1" stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
-                                        </linearGradient>
-                                        <linearGradient id="paint1_linear_server" x1="10" y1="39" x2="10" y2="43"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop offset="1" stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
-                                        </linearGradient>
-                                        <linearGradient id="paint2_linear_server" x1="20" y1="40" x2="20" y2="42"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop offset="1" stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <h5 class="title">Server Monitoring</h5>
-                            <p>Monitor APIs and servers for uptime and health.</p>
-                            <h3 class="number">05</h3>
-                        </div>
-                    </div>
 
-
-                    <div class="col-xl-3 col-md-6">
-                        <div class="speciality-box animate-left" data-aos="fade-right" data-aos-duration="1000"
-                            data-aos-delay="200">
-                            <div class="icon">
-                                <!-- Business Process Automation Icon (fixed) -->
-                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M24 4C12.954 4 4 12.954 4 24C4 35.046 12.954 44 24 44C35.046 44 44 35.046 44 24C44 12.954 35.046 4 24 4ZM24 10C16.268 10 10 16.268 10 24C10 31.732 16.268 38 24 38C31.732 38 38 31.732 38 24C38 16.268 31.732 10 24 10ZM23 16C23 15.4477 23.4477 15 24 15C24.5523 15 25 15.4477 25 16V23H32C32.5523 23 33 23.4477 33 24C33 24.5523 32.5523 25 32 25H24C23.4477 25 23 24.5523 23 24V16Z"
-                                        fill="url(#paint0_linear_bpa)" />
-                                    <path d="M35 14L38 16M38 16L41 14M38 16V12" stroke="url(#paint1_linear_bpa)"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M35 34L38 32M38 32L41 34M38 32V36" stroke="url(#paint2_linear_bpa)"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_bpa" x1="24" y1="4" x2="24" y2="44"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop offset="1" stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
-                                        </linearGradient>
-                                        <linearGradient id="paint1_linear_bpa" x1="38" y1="12" x2="38" y2="16"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop offset="1" stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
-                                        </linearGradient>
-                                        <linearGradient id="paint2_linear_bpa" x1="38" y1="32" x2="38" y2="36"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop offset="1" stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <h5 class="title">Business Process Automation</h5>
-                            <p>Optimize workflows and eliminate repetitive manual processes.</p>
-                            <h3 class="number">06</h3>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="speciality-box animate-left" data-aos="fade-right" data-aos-duration="1000"
-                            data-aos-delay="300">
-                            <div class="icon">
-                                <!-- DevOps Icon (fixed) -->
-                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M24 4C12.954 4 4 12.954 4 24C4 35.046 12.954 44 24 44C35.046 44 44 35.046 44 24C44 12.954 35.046 4 24 4ZM24 12C17.373 12 12 17.373 12 24C12 30.627 17.373 36 24 36C30.627 36 36 30.627 36 24C36 17.373 30.627 12 24 12ZM24 16C19.582 16 16 19.582 16 24C16 28.418 19.582 32 24 32C28.418 32 32 28.418 32 24C32 19.582 28.418 16 24 16Z"
-                                        fill="url(#paint0_linear_branding)" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_branding" x1="24" y1="4" x2="24" y2="44"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop offset="1" stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <h5 class="title">DevOps</h5>
-                            <p>Develop tailored apps to meet unique business goals.</p>
-                            <h3 class="number">07</h3>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="speciality-box animate-left" data-aos="fade-right" data-aos-duration="1000"
-                            data-aos-delay="400">
-                            <div class="icon">
-                                <!-- ERP Implementation Icon (fixed) -->
-                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M8 6C6.89543 6 6 6.89543 6 8V40C6 41.1046 6.89543 42 8 42H40C41.1046 42 42 41.1046 42 40V8C42 6.89543 41.1046 6 40 6H8ZM14 16C14 14.8954 14.8954 14 16 14H32C33.1046 14 34 14.8954 34 16V34C34 35.1046 33.1046 36 32 36H16C14.8954 36 14 35.1046 14 34V16ZM24 26C27.3137 26 30 23.3137 30 20C30 16.6863 27.3137 14 24 14C20.6863 14 18 16.6863 18 20C18 23.3137 20.6863 26 24 26ZM18 28H30V32H18V28Z"
-                                        fill="url(#paint0_linear_erp)" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_erp" x1="24" y1="6" x2="24" y2="42"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop offset="1" stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <h5 class="title">ERP Implementation</h5>
-                            <p>Deploy and customize ERP for seamless business operations.</p>
-                            <h3 class="number">08</h3>
-                        </div>
-                    </div>
 
 
                 </div>
@@ -1000,54 +1128,7 @@
                             </div>
                         </div>
 
-                        <!-- <div class="swiper-slide">
-                            <div class="box-testimonial center">
-                                <svg class="quote-icon" viewBox="0 0 512 512">
-                                    <path fill="#6c5ce7"
-                                        d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
-                                    </path>
-                                </svg>
-                                <p class="text">" Curabitur eu est feugiat quam feugiat tristique non vel erat. Class
-                                    aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                                    himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue,
-                                    nunc nec suscipit fringilla, augue ligula eleifend velit. "</p>
-                                <div class="info">
-                                    <svg class="avatar" viewBox="0 0 200 200">
-                                        <circle cx="100" cy="100" r="100" fill="#f2f2f2" />
-                                        <circle cx="100" cy="85" r="40" fill="#fd79a8" />
-                                        <ellipse cx="100" cy="170" rx="50" ry="40" fill="#fd79a8" />
-                                        <path d="M70 80 Q100 110 130 80" stroke="#333" stroke-width="3" fill="none" />
-                                    </svg>
-                                    <h5 class="name">Sarah Wilson</h5>
-                                    <p>Marketing Director</p>
-                                </div>
-                            </div>
-                        </div> -->
 
-                        <!-- <div class="swiper-slide">
-                            <div class="box-testimonial center">
-                                <svg class="quote-icon" viewBox="0 0 512 512">
-                                    <path fill="#6c5ce7"
-                                        d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
-                                    </path>
-                                </svg>
-                                <p class="text">" Curabitur eu est feugiat quam feugiat tristique non vel erat. Class
-                                    aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                                    himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue,
-                                    nunc nec suscipit fringilla, augue ligula eleifend velit. "</p>
-                                <div class="info">
-                                    <svg class="avatar" viewBox="0 0 200 200">
-                                        <circle cx="100" cy="100" r="100" fill="#f2f2f2" />
-                                        <circle cx="100" cy="85" r="40" fill="#00b894" />
-                                        <ellipse cx="100" cy="170" rx="50" ry="40" fill="#00b894" />
-                                        <rect x="75" y="75" width="10" height="15" fill="#333" />
-                                        <rect x="115" y="75" width="10" height="15" fill="#333" />
-                                    </svg>
-                                    <h5 class="name">Michael Chen</h5>
-                                    <p>Lead Developer</p>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
 
@@ -1341,7 +1422,7 @@
                     <div class="footer-column">
 
                         <h6 class="powered-text" style="display: flex; align-items: center; gap: 5px;">
-                            Powered by
+
                             <img src="assets/images/logo/stackfooternew.png" alt="STACK Logo" style="height: 50px;">
                         </h6> <br>
 
@@ -1352,7 +1433,7 @@
                             <p><i class="fa-solid fa-location-dot"></i> #2, Al Yassmen Building, Zaid Ibn Thabit Street,
                                 Riyadh, Saudi Arabia
                             </p>
-                            <p><i class="fa-solid fa-phone"></i> 054 338 7680</p>
+                            <p><i class="fa-solid fa-phone"></i> +966 54 338 7670</p>
                             <p><i class="fa-solid fa-envelope"></i> business@sbarabia.com</p>
                         </div>
                     </div>
@@ -1364,11 +1445,11 @@
                             <li><a href="stack-bi.html">Stack BI</a></li>
                             <li><a href="cloud_monitoring.html">Cloud Service Monitoring</a></li>
                             <li><a href="visitor_management.html">Visitor Management</a></li>
-                            <li><a href="e_invoicing.html">E Invoicing</a></li>
+                            <!-- <li><a href="e_invoicing.html">E Invoicing</a></li> -->
                             <li><a href="monitoring.html">Server Monitoring</a></li>
-                            <li><a href="business-process.html">Business Process Automation</a></li>
+                            <!-- <li><a href="business-process.html">Business Process Automation</a></li>
                             <li><a href="devops.html">Devops Automation</a></li>
-                            <li><a href="erp.html">ERP Implimentation</a></li>
+                            <li><a href="erp.html">ERP Implimentation</a></li> -->
 
 
 
@@ -1408,7 +1489,7 @@
                 <!-- Footer Bottom Section -->
                 <div class="footer-bottom">
                     <div class="copyright">
-                        Copyright © 2025, Bloombiz Creatives | SBA Business Analytics. All rights reserved.
+                        Copyright © 2025, Bloombiz Creatives | STACK. All rights reserved.
                     </div>
 
                     <ul class="footer-quick-links">
@@ -1453,61 +1534,99 @@
                 </div>
             </div>
         </footer>
-        <a id="scroll-top"><i class="fas fa-arrow-up"></i></a>
+<!-- AIED Notification Box -->
+<div id="sticky-container" class="notification-container hidden">
+  <div class="notification-box">
+    <span class="notification-short-text">AIED</span>
+    <a href="https://aied-sa.com/" class="notification-text" target="_self">Back to AIED</a>
+  </div>
+</div>
 
-    </div>
+<!-- Scroll-to-Top Button -->
+<a id="scroll-top"><i class="fas fa-arrow-up"></i></a>
+
+<style>
+ /* Hide by default */
+.hidden {
+  display: none !important;
+}
+
+.notification-container {
+  position: fixed;
+  bottom: 80px; /* Above scroll-top */
+  right: 0px;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+}
+
+.notification-box {
+  width: 70px;
+  height: 50px;
+  background: linear-gradient(90deg, #0d0f3f, #4b248c);
+  border-radius: 25px 0 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.notification-box:hover {
+  width: 300px;
+}
+
+.notification-short-text {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.notification-box:hover .notification-short-text {
+  opacity: 0;
+}
+
+.notification-text {
+  position: absolute;
+  left: 70px;
+  color: #fff;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+  text-decoration: none !important;
+}
+
+.notification-box:hover .notification-text {
+  opacity: 1;
+}
 
 
 
-    <script>
-        // Get the button
-        const scrollButton = document.getElementById('scrollTopBtn');
+</style>
 
-        // Show button when user scrolls down 300px from the top
-        window.addEventListener('scroll', function () {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollButton.classList.add('visible');
-            } else {
-                scrollButton.classList.remove('visible');
-            }
-        });
+<script>
+  window.addEventListener("scroll", function () {
+    const container = document.getElementById("sticky-container");
+    const banner = document.getElementById("banner");
 
-        // Scroll to top when button is clicked
-        scrollButton.addEventListener('click', function () {
-            // For smooth scrolling:
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+    const bannerBottom = banner.getBoundingClientRect().bottom;
 
-            // Alternative method without smooth scrolling:
-            // document.body.scrollTop = 0; // For Safari
-            // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        });
-    </script>
-    </div>
+    if (bannerBottom < 0) {
+      container.classList.remove("hidden");
+    } else {
+      container.classList.add("hidden");
+    }
+  });
+</script>
 
 
-    <script>
-        $(document).ready(function () {
-            // Show or hide the scroll top button
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 300) {
-                    $('#scroll-top').addClass('show');
-                } else {
-                    $('#scroll-top').removeClass('show');
-                }
-            });
 
-            // Scroll to top when button is clicked
-            $('#scroll-top').click(function () {
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 800);
-                return false;
-            });
-        });
-    </script>
 
 
     <script src="app/js/jquery.min.js"></script>
