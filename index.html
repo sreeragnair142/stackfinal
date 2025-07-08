@@ -391,7 +391,7 @@
                                     <div class="swiper-slide">
                                         <div class="card-box s2">
                                             <div class="image">
-                                                <img src="assets/images/layouts/mobilenew2.png" alt="">
+                                                <img src="assets/images/layouts/mobilenew1.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -1534,116 +1534,114 @@
                 </div>
             </div>
         </footer>
-<!-- AIED Notification Box -->
-<div id="sticky-container" class="notification-container hidden">
-  <div class="notification-box">
-    <span class="notification-short-text">AIED</span>
-    <a href="https://aied-sa.com/" class="notification-text" target="_self">Back to AIED</a>
-  </div>
-</div>
+        <!-- AIED Notification Box -->
+        <div id="sticky-container" class="notification-container hidden">
+            <div class="notification-box">
+                <span class="notification-short-text">AIED</span>
+                <a href="https://aied-sa.com/" class="notification-text" target="_self">Back to AIED</a>
+            </div>
+        </div>
 
-<!-- Scroll-to-Top Button -->
-<a id="scroll-top"><i class="fas fa-arrow-up"></i></a>
+        <!-- Scroll-to-Top Button -->
+        <a id="scroll-top"><i class="fas fa-arrow-up"></i></a>
 
-<style>
- /* Hide by default */
-.hidden {
-  display: none !important;
-}
+        <style>
+            /* Hide by default */
+            .hidden {
+                display: none !important;
+            }
 
-.notification-container {
-  position: fixed;
-  bottom: 80px; /* Above scroll-top */
-  right: 0px;
-  z-index: 999;
-  transition: all 0.3s ease-in-out;
-}
+            .notification-container {
+                position: fixed;
+                bottom: 80px;
+                /* Above scroll-top */
+                right: 0px;
+                z-index: 999;
+                transition: all 0.3s ease-in-out;
+            }
 
-.notification-box {
-  width: 70px;
-  height: 50px;
-  background: linear-gradient(90deg, #0d0f3f, #4b248c);
-  border-radius: 25px 0 0 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  transition: width 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+            .notification-box {
+                width: 70px;
+                height: 50px;
+                background: linear-gradient(90deg, #0d0f3f, #4b248c);
+                border-radius: 25px 0 0 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                cursor: pointer;
+                overflow: hidden;
+                transition: width 0.3s ease-in-out;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
 
-.notification-box:hover {
-  width: 300px;
-}
+            .notification-box:hover {
+                width: 300px;
+            }
 
-.notification-short-text {
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  margin-left: 10px;
-  white-space: nowrap;
-  transition: opacity 0.3s ease-in-out;
-}
+            .notification-short-text {
+                color: #fff;
+                font-weight: bold;
+                font-size: 20px;
+                margin-left: 10px;
+                white-space: nowrap;
+                transition: opacity 0.3s ease-in-out;
+            }
 
-.notification-box:hover .notification-short-text {
-  opacity: 0;
-}
+            .notification-box:hover .notification-short-text {
+                opacity: 0;
+            }
 
-.notification-text {
-  position: absolute;
-  left: 70px;
-  color: #fff;
-  font-size: 18px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  white-space: nowrap;
-  text-decoration: none !important;
-}
+            .notification-text {
+                position: absolute;
+                left: 70px;
+                color: #fff;
+                font-size: 18px;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+                white-space: nowrap;
+                text-decoration: none !important;
+            }
 
-.notification-box:hover .notification-text {
-  opacity: 1;
-}
+            .notification-box:hover .notification-text {
+                opacity: 1;
+            }
+        </style>
 
+        <script>
+            window.addEventListener("scroll", function () {
+                const container = document.getElementById("sticky-container");
+                const banner = document.getElementById("banner");
 
+                const bannerBottom = banner.getBoundingClientRect().bottom;
 
-</style>
-
-<script>
-  window.addEventListener("scroll", function () {
-    const container = document.getElementById("sticky-container");
-    const banner = document.getElementById("banner");
-
-    const bannerBottom = banner.getBoundingClientRect().bottom;
-
-    if (bannerBottom < 0) {
-      container.classList.remove("hidden");
-    } else {
-      container.classList.add("hidden");
-    }
-  });
-</script>
+                if (bannerBottom < 0) {
+                    container.classList.remove("hidden");
+                } else {
+                    container.classList.add("hidden");
+                }
+            });
+        </script>
 
 
 
 
 
-    <script src="app/js/jquery.min.js"></script>
-    <script src="app/js/jquery.easing.js"></script>
-    <script src="app/js/plugins.js"></script>
-    <script src="app/js/countto.js"></script>
+        <script src="app/js/jquery.min.js"></script>
+        <script src="app/js/jquery.easing.js"></script>
+        <script src="app/js/plugins.js"></script>
+        <script src="app/js/countto.js"></script>
 
-    <script src="app/js/app.js"></script>
-    <script src="app/js/count-down.js"></script>
+        <script src="app/js/app.js"></script>
+        <script src="app/js/count-down.js"></script>
 
-    <script src="app/js/aos.js"></script>
+        <script src="app/js/aos.js"></script>
 
 
-    <script src="app/js/swiper-bundle.min.js"></script>
-    <script src="app/js/swiper.js"></script>
+        <script src="app/js/swiper-bundle.min.js"></script>
+        <script src="app/js/swiper.js"></script>
 
-    <!-- Initialize Swiper -->
+        <!-- Initialize Swiper -->
 
 
 </body>
