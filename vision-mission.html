@@ -68,17 +68,14 @@
             border-bottom: none;
         }
 
-        /* AIED Notification Box and Scroll-to-Top Styles */
-        .hidden {
-            display: none !important;
-        }
-
+        /* AIED Notification Box and Scroll-to-Top Styles - FIXED TO ALWAYS SHOW */
         .notification-container {
             position: fixed;
             bottom: 80px; /* Above scroll-top */
             right: 0px;
             z-index: 999;
             transition: all 0.3s ease-in-out;
+            /* Removed hidden class - now always visible */
         }
 
         .notification-box {
@@ -127,8 +124,6 @@
         .notification-box:hover .notification-text {
             opacity: 1;
         }
-
-       
 
         /* Floating Contact Icons */
         .floating-contact-icons {
@@ -484,8 +479,8 @@
             </a>
         </div> -->
 
-        <!-- AIED Notification Box -->
-        <div id="sticky-container" class="notification-container hidden">
+        <!-- AIED Notification Box - NOW ALWAYS VISIBLE -->
+        <div id="sticky-container" class="notification-container">
             <div class="notification-box">
                 <span class="notification-short-text">AIED</span>
                 <a href="https://aied-sa.com/" class="notification-text" target="_self">Back to AIED</a>
@@ -547,9 +542,18 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-column">
-                        <h6 class="powered-text" style="display: flex; align-items: center; gap: 5px;">
-                            <img src="assets/images/logo/stackfooternew.png" alt="STACK Logo" style="height: 50px;" >
-                        </h6> <br>
+                           <h6 class="powered-text" style="
+    font-family: 'Bebas Neue', 'Orbitron', 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ff004f, #ff6600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    margin-bottom: 10px;">
+    Your Data. Your Move.
+</h6>  <br>
                         <p style="font-size: 15px;">SBA Business Analytics provides cutting-edge cloud services,
                             monitoring solutions, and business intelligence tools to help your business thrive in today's
                             digital landscape.</p> <br>
@@ -667,19 +671,8 @@
                 return false;
             });
 
-            // Show or hide AIED notification box
-            window.addEventListener("scroll", function () {
-                const container = document.getElementById("sticky-container");
-                const herooSection = document.getElementById("heroo");
-
-                const herooBottom = herooSection.getBoundingClientRect().bottom;
-
-                if (herooBottom < 0) {
-                    container.classList.remove("hidden");
-                } else {
-                    container.classList.add("hidden");
-                }
-            });
+            // AIED notification box is now always visible - removed scroll event listener
+            // The notification box will remain visible at all times
         });
     </script>
 </body>
